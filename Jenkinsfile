@@ -28,7 +28,7 @@ node {
   }
   }
   
-  stage('Publish prod Report') {
+  stage('Publish Production Report') {
     publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'C:\Users\1557133\.jenkins\workspace\poc-prod-cicd-demo\newman', reportFiles: 'prodtest-report.html', reportName: 'TestReport-Prod', reportTitles: 'TestReport-Prod'])
      echo 'Test report generated'
     }
