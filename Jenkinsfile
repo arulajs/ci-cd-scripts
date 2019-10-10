@@ -12,7 +12,13 @@ node {
     build_ok = false
   }
   
-  try {
+  stage('Publish Development Report') {
+    publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'newman', reportFiles: 'devtest-report.html', reportName: 'TestReport-Dev', reportTitles: 'TestReport-Dev'])
+     echo 'Test report generated'
+    }
+  
+  if(build_ok) {
+    try {
     stage('Run Production pipeline') {
     echo 'Build initiated in Production environment'
     build job: 'poc-prod-cicd-demo'
@@ -20,6 +26,12 @@ node {
   } catch(e) {
     build_ok = false
   }
+  }
+  
+  stage('Publish prod Report') {
+    publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'newman', reportFiles: 'prodtest-report.html', reportName: 'TestReport-Prod', reportTitles: 'TestReport-Prod'])
+     echo 'Test report generated'
+    }
   
   if(build_ok) {
         currentBuild.result = "SUCCESS"
