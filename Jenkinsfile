@@ -8,7 +8,7 @@ node {
     echo 'Build initiated in Development environment'
     build job: 'poc-dev-cicd-demo'
     } 
-  } catch(Exception e) {
+  } catch(e) {
     build_ok = false
   }
   
@@ -17,12 +17,14 @@ node {
     echo 'Build initiated in Production environment'
     build job: 'poc-prod-cicd-demo'
     }
-  } catch(Exception e) {
+  } catch(e) {
     build_ok = false
   }
   
-  if(build_ok = false) {
-    currentBuild.STATUS = 'FAILED'
-  }
+  if(build_ok) {
+        currentBuild.result = "SUCCESS"
+    } else {
+        currentBuild.result = "FAILURE"
+    }
   
 }
