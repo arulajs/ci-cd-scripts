@@ -8,12 +8,11 @@ node {
     build job: 'poc-dev-cicd-demo'
   }
   
-  if(currentBuild.result == "SUCCESS")
-  {
+ 
     stage('Run Production pipeline') {
     echo 'Build initiated in Production environment'
     build job: 'poc-prod-cicd-demo'
-  }
+  
   }
   
 }
