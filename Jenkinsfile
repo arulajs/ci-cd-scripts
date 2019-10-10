@@ -13,7 +13,7 @@ node {
   }
   
   stage('Publish Development Report') {
-    publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'newman', reportFiles: 'devtest-report.html', reportName: 'TestReport-Dev', reportTitles: 'TestReport-Dev'])
+    publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'C:\Users\1557133\.jenkins\workspace\poc-dev-cicd-demo\newman', reportFiles: 'devtest-report.html', reportName: 'TestReport-Dev', reportTitles: 'TestReport-Dev'])
      echo 'Test report generated'
     }
   
@@ -29,7 +29,7 @@ node {
   }
   
   stage('Publish prod Report') {
-    publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'newman', reportFiles: 'prodtest-report.html', reportName: 'TestReport-Prod', reportTitles: 'TestReport-Prod'])
+    publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'C:\Users\1557133\.jenkins\workspace\poc-prod-cicd-demo\newman', reportFiles: 'prodtest-report.html', reportName: 'TestReport-Prod', reportTitles: 'TestReport-Prod'])
      echo 'Test report generated'
     }
   
